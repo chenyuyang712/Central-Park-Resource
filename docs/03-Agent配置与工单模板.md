@@ -8,7 +8,7 @@
 | GitHub Copilot | [仓库级自定义指令](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) | `.github/copilot-instructions.md`可给全仓指令；`.github/instructions/*.instructions.md`可按路径生效；AI Agent也支持`AGENTS.md` | 不把Copilot专用路径/语法当成所有Agent通用配置 |
 | Claude Code | [记忆与项目指令](https://code.claude.com/docs/en/memory) | `CLAUDE.md`用于项目/用户指引；Claude Code也可读取`AGENTS.md`；`.claude/rules/`可组织路径规则；指令被当作上下文 | 适用于Claude Code；须确认赛事是否允许及客户端版本，不等于KCoder配置 |
 | 腾讯云案例中的Agent配置 | [JXHC AGENTS.md](https://cnb.cool/vellzhao/jxhc/-/blob/master/AGENTS.md) | 包含场景识别、README优先、按任务读取规则、复杂需求用spec、需求/设计/任务/验收分阶段的思路 | 其中CloudBase MCP、云函数部署、认证规则是腾讯云特定，不可直接移植；仓库许可未确认，不复制代码 |
-| KCoder赛事平台 | 用户提供的《KCoder快速上手指南（2.0.23版）》及比赛规则 | 指南版本标示Studio 2.0.23、CLI 2.0.9、Mobile 2.0.23；连接/模型/额度以技术组配置为准，指南声明若干功能未实机验证 | 只使用主办方批准的GPT-Station、KCoder和连接器路径；不要默认定时任务、手机端或自建中继适用于比赛 |
+| KCoder赛事平台 | 用户提供的2.0.29安装包、2.0.23旧指南及规则PPT | 新包静态发现项目AGENTS、默认`.kcoder/skills`、Skill目录导入/启停；原生运行未实测，详见[核查报告](06-KCoder2.0.29静态核查与评分配置.md) | [现场配置包](../templates/kcoder-match/README-现场配置.md)附新会话探针与安装验收；指定Baize omni，模型ID/额度/批准连接器以现场配置为准 |
 
 ## 2. 跨工具通用的Agent指引结构
 
@@ -103,3 +103,17 @@
 - 要求Agent先读项目文档/检查状态，不能以“改完代码”冒充测试通过；没有运行的命令明确标记未验证。
 - 小项目可简化分支/worktree流程，但要保留“先基线、后改动、再验收、用户确认后发布”的顺序。
 - 该仓库的`npm test`、Windows PowerShell平台构建脚本及发布分支约束属于它自己的技术环境；不能直接当成KCoder或本赛事的必需配置。此处只提炼公开文档结构，不复制整个外部`AGENTS.md`。
+
+## 9. 已落实到KCoder 2.0.29的条例，而非跨平台复制
+
+成品：[现场安装入口](../templates/kcoder-match/README-现场配置.md)、[Skill安装](../templates/kcoder-match/SKILLS-现场安装.md)、[完整ZIP](../downloads/KCoder-2.0.29-agent-config.zip)。
+
+| 已有参考/原则 | 本次落地 | 没有照搬的部分 |
+|---|---|---|
+| JXHC项目按任务读取规则、需求/设计/任务/验收分阶段 | 根AGENTS稳定规则 + PROJECT/TASKS/EVIDENCE按需读取，先契约后单项验收 | CloudBase MCP、云函数、特定认证/部署配置 |
+| 拓扑五子棋的角色权限、状态保护、模块边界、真实验证 | 保护队友改动、文件所有权、输入适配与核心分离，交付Skill检查实际证据 | 多发行分支、特定平台适配、该仓库命令与worktree流程，不强加给未知技术栈 |
+| 先复现、再假设、再最小修复与回归 | `cp29-debug`，两轮针对修复仍失败转阻塞 | 不依赖特定调试器，不盲目循环/重装 |
+| 创意必须改变用户动作/决策并可观察 | `cp29-innovation`，至多三个机制、一个实验、真实反馈 | 不以特效/摄像头/AI标签或宣称首创代替创新 |
+| 先验证再声称完成、审查不自动授权发布 | `cp29-delivery`，四维证据/四件套/来源，默认不提交推送 | 不编造“通过”“用量”或评分公式，不向评审器写提示 |
+
+三个Skill均为本次整理的简短自包含流程；不复制外部整套提示词、不安装其他平台专用插件。路径/名称/YAML要求来自本次KCoder包；跨项目启停作用域、专家级文件导入与目标账号级目录导入分别说明。安装文件、原生发现、启用、正文加载和实际行为是五个不同检查项，文档不把它们混为“已配置成功”。

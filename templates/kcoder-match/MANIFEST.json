@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "purpose": "File integrity only; not a publisher signature or runtime certification.",
+  "files": [
+    {
+      "path": ".kcoder/skills/cp29-debug/SKILL.md",
+      "sha256": "df4780b827ee42d8c0e78c3b6771f76f81ceea5587e195686b1eedd097ab62bd"
+    },
+    {
+      "path": ".kcoder/skills/cp29-delivery/SKILL.md",
+      "sha256": "006f91198157795f12ea7baf67a3f71bfa8fdb5080ca58dd18814440385d12b8"
+    },
+    {
+      "path": ".kcoder/skills/cp29-innovation/SKILL.md",
+      "sha256": "af2c079043b562a4b007f31210cb47bbcf8b6a81ef1df74e9eea6063186ec6be"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "426275f7f4b30524acb032da11891eee9425bb8067d8a35a9843dce68f1ccac9"
+    },
+    {
+      "path": "INSTALL.ps1",
+      "sha256": "3072db81651c98cdd91ca8d0cd4b3129cf47a83d8270b7e1bd24f2239ed59bf6"
+    },
+    {
+      "path": "README-现场配置.md",
+      "sha256": "756d9623b725a5b97a77b7ea784c5934cd6e2d71dfc265c629944c8d47aac5b8"
+    },
+    {
+      "path": "SKILLS-现场安装.md",
+      "sha256": "0b58ec47e9d3e6177bdb97dff578e7618ca27954d04a89f20e599058a3d46bfd"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "faf236ecd91b56e883e4ba032fe540dd97c4791beb60318e4d4d65acca9ee4cf"
+    },
+    {
+      "path": "docs/EVIDENCE.md",
+      "sha256": "22f0e405cea6268c2f79fb2a3131d1a3b3059c58f619d8dc0a8f56fb21725b3f"
+    },
+    {
+      "path": "docs/PROJECT.md",
+      "sha256": "f33df43a71ec5a951f09582ffae6c0fee712c1a70773c8ce530c4e95f9d02bf4"
+    },
+    {
+      "path": "docs/TASKS.md",
+      "sha256": "d72cd14e8cd43353efc74dac775615bcebfb042482f4486dd4cde95780e26561"
+    }
+  ]
+}
